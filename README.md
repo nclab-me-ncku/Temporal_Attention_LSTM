@@ -52,4 +52,4 @@ model.fit(x=train_x, y=train_y, batch_size=BATCHSIZE, epochs=EPOCH, verbose=0, s
 # train_x and train_y represent training data and ground truth respectively
 # the details of hyperparameters are list in our paper
 ```
-For more details about the process of training on one of nonhuman primate datasets we used, please refer to `testForRnnInput.py`.
+For more details about the process of training on one of nonhuman primate datasets we used, please refer to `findTapsize_attantionModule.py`.
