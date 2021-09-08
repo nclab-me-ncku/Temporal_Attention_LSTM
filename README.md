@@ -1,5 +1,11 @@
 # Temporal_Attention_LSTM
 
+## Contents
+- [Introduction and environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction-and-environment)
+- [Why we need timestep selection](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#why-we-need-timestep-selection)
+- [What is temporal attention module (TAM)](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#what-is-temporal-attention-module-tam)
+- [How to use our model](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#how-to-use-our-model)
+
 ## Introduction and environment
 
  * This repository implements temporal attention-aware timestep selection (TTS) method for LSTM. 
