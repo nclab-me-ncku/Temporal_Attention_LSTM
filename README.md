@@ -39,7 +39,7 @@ where <img src="https://latex.codecogs.com/png.latex?T"/> and <img src="https://
 
 ## How to use our model
 
-Our model is written by tensorflow.keras framework, so it could be called by `.compile()` function of tensorflow as shown in the example below:
+Our model is written by tensorflow.keras framework, so it could be easily called by `.compile()` function of tensorflow as shown in the example below:
 ```py
 from models import lstm_decoder 
 # import our model from model.py
