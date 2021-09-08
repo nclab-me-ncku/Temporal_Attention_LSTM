@@ -60,7 +60,7 @@ from models import lstm_decoder
 model = lstm_decoder(tapsize=tapsize, attn=True) 
 # define the model (the details of parameters are listed in model.py)
 ```
-In this way, you could use `.fit` function to train your own data:
+In this way, you could use `.fit()` function to train your own data:
 ```py
 model.fit(x=train_x, y=train_y, batch_size=BATCHSIZE, epochs=EPOCH, verbose=0, shuffle=True)
 # train_x and train_y represent training data and ground truth respectively
