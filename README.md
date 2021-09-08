@@ -44,7 +44,7 @@ Our model is written by tensorflow.keras framework, so it could be easily called
 from models import lstm_decoder 
 # import our model from model.py
 model = lstm_decoder(tapsize=tapsize, attn=True) 
-# define the model (the details of parameters are listed in from model.py)
+# define the model (the details of parameters are listed in model.py)
 ```
 In this way, you could use `.fit` function to train your own data:
 ```py
