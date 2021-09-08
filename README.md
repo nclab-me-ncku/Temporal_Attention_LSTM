@@ -33,7 +33,9 @@ Eventually, the TAM aggregates the hidden states of all timesteps according to t
 
 The structure of our TAM is shown below:
 
+![](fig/TAM.png)
 
+where <img src="https://latex.codecogs.com/png.latex?T"/> and <img src="https://latex.codecogs.com/png.latex?H"/> represent number of timesteps and number of hidden units respectively.
 
 ## How to use our model
 
