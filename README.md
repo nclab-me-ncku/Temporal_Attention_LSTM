@@ -1,19 +1,25 @@
-# Temporal_Attention_LSTM
+# Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network
 
 ## Contents
-- [Introduction and environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction-and-environment)
+- [Introduction](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction)
+- [Environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#environment)
 - [Why we need timestep selection](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#why-we-need-timestep-selection)
 - [What is temporal attention module (TAM)](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#what-is-temporal-attention-module-tam)
 - [How to use our model](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#how-to-use-our-model)
 
-## Introduction and environment
+## Introduction
+* **This is the official implementation of "Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network"**.
+  * If you use our model in your paper, please cite ours above.
 
- * This repository implements temporal attention-aware timestep selection (TTS) method for LSTM. 
- * Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
- * Here is our environment: 
-> * OS: Windows 10
->* Language: python 3.9
->* Dependencies: defined in `Pipfile`
+* Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
+
+
+## Environment
+* Here is our environment: 
+  * OS: Windows 10
+  * Language: python 3.9
+  * Dependencies: defined in `Pipfile`
+
 
 ## Why we need timestep selection
 
