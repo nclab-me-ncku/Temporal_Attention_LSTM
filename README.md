@@ -23,7 +23,20 @@ Accordingly, it is important to make a trade-off between the computational compl
 
 The TAM in ours research aims to determine the relative importance of each neural activity timestep and selects essential timesteps by means of attention weight <img src="https://latex.codecogs.com/png.latex?a_{\tau}"/> which is estimated as follows:  
 
-<img src="https://latex.codecogs.com/png.latex?\textit{\textbf{u}}_{\tau}=\text{RELU}(\textit{\textbf{W}}\textit{\textbf{h}}_{\tau}+\textit{\textbf{b}})"/>
+![](https://latex.codecogs.com/png.latex?\textit{\textbf{u}}_{\tau}=\text{RELU}(\textit{\textbf{W}}\textit{\textbf{h}}_{\tau}+\textit{\textbf{b}}))
+  
+![](https://latex.codecogs.com/png.latex?a_{\tau}=\frac{\exp{(u^T_{\tau}v)}}{\sum^T_{\tau=1}\exp{(u^T_{\tau}v)}})
+
+Then the TAM aggregates the hidden states of all timesteps according to the attention weights:  
+
+![](https://latex.codecogs.com/png.latex?\textit{\textbf{h}}_w=\sum^T_{\tau=1}a_{\tau}\textit{\textbf{h}}_\tau)
+
+Eventually, we could get kinematic state <img src="https://latex.codecogs.com/png.latex?\hat{y}"/> by feeding this learned hidden representation <img src="https://latex.codecogs.com/png.latex?\textit{\textbf{h}}_w"/> into fully connected layer:
+
+![](https://latex.codecogs.com/png.latex?\hat{y}=\textit{\textbf{d}}^T\cdot\textit{\textbf{h}}_w)
+
+The structure of our TAM is shown below:
+
 
 
 ## How to use our model
