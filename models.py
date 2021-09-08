@@ -7,7 +7,7 @@ class TemporalAttentionModule(keras.Model):
         """This is the structure of temporal attention module
 
         Args:
-            featureNum (int): It means the number of hidden units of RNNs
+            featureNum (int): It means the number of hidden units of RNNs.
             reduction_ratio (int): The reduction ratio of number of hidden units. Defaults to 2.
         """
         super(TemporalAttentionModule, self).__init__()
@@ -22,8 +22,16 @@ class TemporalAttentionModule(keras.Model):
 
         self.softmax = keras.layers.Softmax(axis=-1)
 
-    def call(self, x):        
+    def call(self, x):
+        """call function of TAM
 
+        Args:
+            x (array): The input data after RNNs, of which its dimension should be (batch x T x H).
+
+        Returns:
+            x (array): The output data after aggregating, of which its dimension would be same as inputs.
+            score (array): attention weights of TAM
+        """
         score = self.scoreLayer(x)
 
         score = self.softmax(score)
@@ -87,6 +95,15 @@ class lstm_decoder(keras.Model):
         return {m.name: m.result() for m in self.metrics}
 
     def call(self, x):
+        """call function of LSTM
+
+        Args:
+            x (array): Firing rate, of which its dimension should be (batch x T x channel).
+
+        Returns:
+            x (array): Kinematic state, and its dimension should be (batch x 1). 
+                       That means you only can predict one dimension of kinematics once. 
+        """
         x = x[:, -self.tapsize:, :]
         x = self.emb(x)   
         
