@@ -7,7 +7,7 @@
  * Here is our environment: 
 > * OS: Windows 10
 >* Language: python 3.9
->* Packages: includes in `Pipfile`
+>* Dependencies: defined in `Pipfile`
 
 ## Why we need timestep selection
 
