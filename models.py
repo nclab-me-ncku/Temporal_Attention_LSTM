@@ -77,9 +77,10 @@ class lstm_decoder(keras.Model):
         x, y = data
 
         with tf.GradientTape() as tape:
-            
-            y_pred, *scale = self(x, training=True)  # Forward pass
-            
+            if self.attn:
+                y_pred, scale = self(x, training=True)  # Forward pass
+            else:
+                y_pred = self(x, training=True)
             # Compute the loss value
             # (the loss function is configured in `compile()`)
             loss = self.compiled_loss(y, y_pred, regularization_losses=self.losses)
