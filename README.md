@@ -3,7 +3,7 @@
 ## Introduction and environment
 
  * This repository implements temporal attention-aware timestep selection (TTS) method for LSTM. 
- * Our research has exerted this technique in neural decoding. Experimental results show that it could <font color=#800000>outperform state-of-the-art neural decoders</font> on two nonhuman primate datasets. In addition, it also <font color=#800000>reduces the computation time for prediction</font>.
+ * Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
  * Here is our environment: 
 > * OS: Windows 10
 >* Language: python 3.9
@@ -11,13 +11,13 @@
 
 ## Why we need timestep selection
 
-RNN-based neural decoders might cause <font color=#800000>latency between the input of neural activity and the response of kinematic state</font> because of insufficient number of timesteps (time bins) signal.
+RNN-based neural decoders might cause **latency between the input of neural activity and the response of kinematic state** because of insufficient number of timesteps (time bins) signal.
 
-Therefore, adding both previous and current timesteps signal could <font color=#800000>help the model learn neural response dynamics</font> from neural activity efficiently. 
+Therefore, adding both previous and current timesteps signal could **help the model learn neural response dynamics** from neural activity efficiently. 
 
-However, <font color=#800000>excessively long neural activity periods results in computational burden</font> and hinders the decoding performance.  
+However, **excessively long neural activity periods results in computational burden** and hinders the decoding performance.  
 
-Accordingly, it is important to <font color=#800000>make a trade-off between the computational complexity of decoder and the decoding performance</font> by selecting adequate number of input timesteps.
+Accordingly, it is important to **make a trade-off between the computational complexity of decoder and the decoding performance** by selecting adequate number of input timesteps.
 
 ## What is temporal attention module (TAM)
 
