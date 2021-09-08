@@ -1,11 +1,11 @@
 # Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network
 
 ## Contents
-- [Introduction](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction)
-- [Environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#environment)
-- [Why we need timestep selection](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#why-we-need-timestep-selection)
-- [What is temporal attention module (TAM)](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#what-is-temporal-attention-module-tam)
-- [How to use our model](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#how-to-use-our-model)
+* [Introduction](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction)
+* [Environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#environment)
+* [Why we need timestep selection](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#why-we-need-timestep-selection)
+* [What is temporal attention module (TAM)](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#what-is-temporal-attention-module-tam)
+* [How to use our model](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#how-to-use-our-model)
 
 ## Introduction
 * This is the official implementation of "Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network".**If you use our model in your paper, please cite this paper in your reference**.  
