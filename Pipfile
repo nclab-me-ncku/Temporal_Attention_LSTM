@@ -12,6 +12,7 @@ keras-tuner = "*"
 einops = "*"
 matplotlib = "*"
 seaborn = "*"
+pyarrow = "*"
 
 [dev-packages]
 

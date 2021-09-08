@@ -6,18 +6,18 @@
 > * Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
 > * Here is our environment: 
 >> * OS: Windows 10
->>* Language: python 3.8.5
+>>* Language: python 3.9
 >>* Packages: includes in `Pipfile`
 
 ## Why we need timestep selection
 
-RNN-based neural decoders might cause latency between the input of neural activity and the response of kinematic state because of insufficient number of timesteps (time bins) signal.
+RNN-based neural decoders might cause **latency between the input of neural activity and the response of kinematic state** because of insufficient number of timesteps (time bins) signal.
 
-Therefore, adding both previous and current timesteps signal could help the model learn neural response dynamics from neural activity efficiently. 
+Therefore, adding both previous and current timesteps signal could **help the model learn neural response dynamics** from neural activity efficiently. 
 
-However, excessively long neural activity periods results in computational burden and hinders the decoding performance.  
+However, **excessively long neural activity periods results in computational burden** and hinders the decoding performance.  
 
-Accordingly, it is important to make a trade-off between the computational complexity of decoder and the decoding performance by selecting adequate number of input timesteps.
+Accordingly, it is important to **make a trade-off between the computational complexity of decoder and the decoding performance** by selecting adequate number of input timesteps.
 
 ## What is temporal attention module (TAM)
 
@@ -27,13 +27,9 @@ The TAM in ours research aims to determine the relative importance of each neura
   
 ![](https://latex.codecogs.com/png.latex?a_{\tau}=\frac{\exp{(u^T_{\tau}v)}}{\sum^T_{\tau=1}\exp{(u^T_{\tau}v)}})
 
-Then the TAM aggregates the hidden states of all timesteps according to the attention weights:  
+Eventually, the TAM aggregates the hidden states of all timesteps according to the attention weights:  
 
 ![](https://latex.codecogs.com/png.latex?\textit{\textbf{h}}_w=\sum^T_{\tau=1}a_{\tau}\textit{\textbf{h}}_\tau)
-
-Eventually, we could get kinematic state <img src="https://latex.codecogs.com/png.latex?\hat{y}"/> by feeding this learned hidden representation <img src="https://latex.codecogs.com/png.latex?\textit{\textbf{h}}_w"/> into fully connected layer:
-
-![](https://latex.codecogs.com/png.latex?\hat{y}=\textit{\textbf{d}}^T\cdot\textit{\textbf{h}}_w)
 
 The structure of our TAM is shown below:
 
