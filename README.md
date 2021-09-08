@@ -23,10 +23,8 @@ Accordingly, it is important to make a trade-off between the computational compl
 
 The TAM in ours research aims to determine the relative importance of each neural activity timestep and selects essential timesteps by means of attention weight <img src="https://latex.codecogs.com/png.latex?a_{\tau}"/> which is estimated as follows:  
 
-<img src="https://latex.codecogs.com/png.latex?\begin{equation} 
-\textit{\textbf{u}}_{\tau}=\text{RELU}(\textit{\textbf{W}}\textit{\textbf{h}}_{\tau}+\textit{\textbf{b}})\\
-a
-\end{equation}
+<img src="https://latex.codecogs.com/png.latex?
+\textit{\textbf{u}}_{\tau}=\text{RELU}(\textit{\textbf{W}}\textit{\textbf{h}}_{\tau}+\textit{\textbf{b}})
 "/>
 
 
