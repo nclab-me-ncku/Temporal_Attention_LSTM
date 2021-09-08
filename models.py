@@ -3,7 +3,13 @@ import tensorflow.keras as keras
 from einops import repeat
 
 class TemporalAttentionModule(keras.Model):
-    def __init__(self, featureNum, reduction_ratio):
+    def __init__(self, featureNum, reduction_ratio=2):
+        """This is the structure of temporal attention module
+
+        Args:
+            featureNum (int): It means the number of hidden units of RNNs
+            reduction_ratio (int): The reduction ratio of number of hidden units. Defaults to 2.
+        """
         super(TemporalAttentionModule, self).__init__()
         
         self.scoreLayer = keras.Sequential([
@@ -29,6 +35,12 @@ class TemporalAttentionModule(keras.Model):
 
 class lstm_decoder(keras.Model):
     def __init__(self, tapsize, attn=True):
+        """This is the structure of LSTM-based neural decoder
+
+        Args:
+            tapsize (int): It means number of timesteps
+            attn (bool, optional): Whether use TAM or not. Defaults to True.
+        """
         super(lstm_decoder, self).__init__()
 
         # params

@@ -2,22 +2,22 @@
 
 ## Introduction and environment
 
-> * This repository implements temporal attention-aware timestep selection (TTS) method for LSTM. 
-> * Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
-> * Here is our environment: 
->> * OS: Windows 10
->>* Language: python 3.9
->>* Packages: includes in `Pipfile`
+ * This repository implements temporal attention-aware timestep selection (TTS) method for LSTM. 
+ * Our research has exerted this technique in neural decoding. Experimental results show that it could <font color=#800000>outperform state-of-the-art neural decoders</font> on two nonhuman primate datasets. In addition, it also <font color=#800000>reduces the computation time for prediction</font>.
+ * Here is our environment: 
+> * OS: Windows 10
+>* Language: python 3.9
+>* Packages: includes in `Pipfile`
 
 ## Why we need timestep selection
 
-RNN-based neural decoders might cause **latency between the input of neural activity and the response of kinematic state** because of insufficient number of timesteps (time bins) signal.
+RNN-based neural decoders might cause <font color=#800000>latency between the input of neural activity and the response of kinematic state</font> because of insufficient number of timesteps (time bins) signal.
 
-Therefore, adding both previous and current timesteps signal could **help the model learn neural response dynamics** from neural activity efficiently. 
+Therefore, adding both previous and current timesteps signal could <font color=#800000>help the model learn neural response dynamics</font> from neural activity efficiently. 
 
-However, **excessively long neural activity periods results in computational burden** and hinders the decoding performance.  
+However, <font color=#800000>excessively long neural activity periods results in computational burden</font> and hinders the decoding performance.  
 
-Accordingly, it is important to **make a trade-off between the computational complexity of decoder and the decoding performance** by selecting adequate number of input timesteps.
+Accordingly, it is important to <font color=#800000>make a trade-off between the computational complexity of decoder and the decoding performance</font> by selecting adequate number of input timesteps.
 
 ## What is temporal attention module (TAM)
 
@@ -39,5 +39,17 @@ where <img src="https://latex.codecogs.com/png.latex?T"/> and <img src="https://
 
 ## How to use our model
 
- 
-
+Our model is written by tensorflow.keras framework, so it could be called by `.compile()` function of tensorflow as shown in the example below:
+```py
+from models import lstm_decoder 
+# import our model from model.py
+model = lstm_decoder(tapsize=tapsize, attn=True) 
+# define the model (the details of parameters are listed in from model.py)
+```
+In this way, you could use `.fit` function to train your own data:
+```py
+model.fit(x=train_x, y=train_y, batch_size=BATCHSIZE, epochs=EPOCH, verbose=0, shuffle=True)
+# train_x and train_y represent training data and ground truth respectively
+# the details of hyperparameters are list in our paper
+```
+For more details about the process of training on one of nonhuman primate datasets we used, please refer to `testForRnnInput.py`.
