@@ -1,5 +1,7 @@
 # Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network
 
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 ## Contents
 * [Introduction](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#introduction)
 * [Environment](https://github.com/nclab-me-ncku/Temporal_Attention_LSTM#environment)
