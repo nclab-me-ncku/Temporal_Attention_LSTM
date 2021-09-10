@@ -68,3 +68,11 @@ model.fit(x=train_x, y=train_y, batch_size=BATCHSIZE, epochs=EPOCH, verbose=0, s
 # the details of hyperparameters are list in our paper
 ```
 For more details about the process of training on one of nonhuman primate datasets we used, please refer to `findTapsize_attantionModule.py`.
+
+## Result
+
+The attention weights of the TAM were visualized across all observations, as shown in below. Three RNN-based neural decoders were implemented using neural activity over 15 timesteps (i.e., <img src="https://latex.codecogs.com/png.latex?T=15"/>) for monkey Indy data and monkey N data. 
+
+![](fig/result.png)
+
+ * Visualization of attention weights for monkey Indy (top row) and monkey N (bottom row). Each subfigure presents the kinematic state (top), attention weights (middle), and neural activity (bottom). (a) and (d) Vanilla RNN. (b) and (e) LSTM. (c) and (f) GRU.
