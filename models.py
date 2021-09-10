@@ -37,9 +37,9 @@ class bciDecoder(keras.Model):
 
         # layers
         self.emb = keras.Sequential(layers=[
-            keras.layers.Bidirectional(keras.layers.SimpleRNN(256, return_sequences=True), merge_mode='concat'),
+            keras.layers.Bidirectional(keras.layers.LSTM(256, return_sequences=True), merge_mode='concat'),
             keras.layers.LayerNormalization(),
-            keras.layers.SimpleRNN(256, return_sequences=True)
+            keras.layers.LSTM(256, return_sequences=True)
         ], name='featureExtracter')   
 
         if attn:
