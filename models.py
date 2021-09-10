@@ -3,35 +3,21 @@ import tensorflow.keras as keras
 from einops import repeat
 
 class TemporalAttentionModule(keras.Model):
-    def __init__(self, featureNum, reduction_ratio=2):
-        """This is the structure of temporal attention module
-
-        Args:
-            featureNum (int): It means the number of hidden units of RNNs.
-            reduction_ratio (int): The reduction ratio of number of hidden units. Defaults to 2.
-        """
+    def __init__(self, featureNum, reduction_ratio):
         super(TemporalAttentionModule, self).__init__()
         
         self.scoreLayer = keras.Sequential([
             keras.layers.Dense(featureNum//reduction_ratio, activation=None),
             keras.layers.LayerNormalization(),
-            keras.layers.Activation(tf.nn.relu),
+            keras.layers.Activation(tf.nn.tanh),
             keras.layers.Dense(1, activation=None),
             keras.layers.Flatten()            
         ])
 
         self.softmax = keras.layers.Softmax(axis=-1)
 
-    def call(self, x):
-        """call function of TAM
+    def call(self, x):        
 
-        Args:
-            x (array): The input data after RNNs, of which its dimension should be (batch x T x H).
-
-        Returns:
-            x (array): The output data after aggregating, of which its dimension would be same as inputs.
-            score (array): attention weights of TAM
-        """
         score = self.scoreLayer(x)
 
         score = self.softmax(score)
@@ -41,35 +27,29 @@ class TemporalAttentionModule(keras.Model):
 
         return x, score
 
-class lstm_decoder(keras.Model):
+class bciDecoder(keras.Model):
     def __init__(self, tapsize, attn=True):
-        """This is the structure of LSTM-based neural decoder
-
-        Args:
-            tapsize (int): It means number of timesteps
-            attn (bool, optional): Whether use TAM or not. Defaults to True.
-        """
-        super(lstm_decoder, self).__init__()
+        super(bciDecoder, self).__init__()
 
         # params
         self.tapsize = tapsize
         self.attn = attn
 
         # layers
-        self.emb = keras.Sequential([
-            keras.layers.Bidirectional(keras.layers.LSTM(256, return_sequences=True), merge_mode='concat'),
+        self.emb = keras.Sequential(layers=[
+            keras.layers.Bidirectional(keras.layers.SimpleRNN(256, return_sequences=True), merge_mode='concat'),
             keras.layers.LayerNormalization(),
-            keras.layers.LSTM(256, return_sequences=True)
-        ])   
+            keras.layers.SimpleRNN(256, return_sequences=True)
+        ], name='featureExtracter')   
 
         if attn:
             self.tmpAttn = TemporalAttentionModule(featureNum=256, reduction_ratio=2)
 
-        self.decoder = keras.Sequential([
+        self.decoder = keras.Sequential(layers=[
             keras.layers.Flatten(),
             keras.layers.Dense(64, activation=tf.nn.relu),
             keras.layers.Dense(1)
-        ])
+        ], name='decoder')
     
     def train_step(self, data):
         # Unpack the data. Its structure depends on your model and
@@ -96,15 +76,6 @@ class lstm_decoder(keras.Model):
         return {m.name: m.result() for m in self.metrics}
 
     def call(self, x):
-        """call function of LSTM
-
-        Args:
-            x (array): Firing rate, of which its dimension should be (batch x T x channel).
-
-        Returns:
-            x (array): Kinematic state, and its dimension should be (batch x 1). 
-                       That means you only can predict one dimension of kinematics once. 
-        """
         x = x[:, -self.tapsize:, :]
         x = self.emb(x)   
         
@@ -116,5 +87,5 @@ class lstm_decoder(keras.Model):
         else:
             x = x[:, -1, :]
             x = self.decoder(x)
-        
+           
             return x
