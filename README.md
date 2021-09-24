@@ -13,6 +13,7 @@
 * This is the official implementation of "Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network".**If you use our model in your paper, please cite this paper in your reference**.  
   * Authors: Shih-Hung Yang *, Jyun-We Huang †, Chun-Jui Huang †, Po-Hsiung Chiu †, Hsin-Yi Lai, and You-Yin Chen
     * † These authors contributed equally to this paper
+  * Selection of Essential Neural Activity Timesteps for Intracortical Brain–Computer Interface Based on Recurrent Neural Network. Sensors 2021, 21, 6372. https://doi.org/10.3390/s21196372
 
 * Our research has exerted this technique in neural decoding. Experimental results show that it could **outperform state-of-the-art neural decoders** on two nonhuman primate datasets. In addition, it also **reduces the computation time for prediction**.
 
