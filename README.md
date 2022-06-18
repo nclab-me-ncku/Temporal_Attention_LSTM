@@ -57,10 +57,12 @@ where <img src="https://latex.codecogs.com/png.latex?T"/> and <img src="https://
 
 Our model is written by tensorflow.keras framework, so it could be easily called by `.compile()` function of tensorflow as shown in the example below:
 ```py
-from models import lstm_decoder 
+from models import bciDecoder 
 # import our model from model.py
-model = lstm_decoder(tapsize=tapsize, attn=True) 
-# define the model (the details of parameters are listed in model.py)
+model = bciDecoder(tapsize=tapsize, attn=attn)
+# define the model (the details of parameters are listed in models.py)
+model.compile(optimizer=keras.optimizers.Adam(learning_rate=1e-4), loss='mse')
+# compile the model using Adam optimizer with learning rate 1e-4 and mean square error loss
 ```
 In this way, you could use `.fit()` function to train your own data:
 ```py
